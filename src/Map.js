@@ -16,8 +16,8 @@ const MapHelper = withScriptjs(withGoogleMap((props) =>
     >
         {props.markers && props.markers.filter(marker =>marker.show).map(marker=>
             <Marker key={marker.id} position={{lat:marker.lat, lng:marker.lng}} onClick={()=> props.handleClicker(marker)} defaultAnimation={google.maps.Animation.bounce}>
-                {marker.selected && <InfoWindow>
-                    <React.Fragment>
+                {marker.selected && <InfoWindow role="dialog">
+                    <React.Fragment >
                         <img src={marker.imgURL} alt='Venue' />
                         <h4>{marker.name}</h4>
                         <p>{marker.rating} </p>
@@ -48,13 +48,3 @@ class Map extends React.Component {
 }
 
 export default Map
-
-/*
-fetch('https://api.foursquare.com/v2/venues/explore?client_id=CLIENT_ID&client_secret=CLIENT_SECRET&v=20180323&limit=1&ll=40.7243,-74.0018&query=coffee')
-    .then(function() {
-        // Code for handling API response
-    })
-    .catch(function() {
-        // Code for handling errors
-    });
-*/

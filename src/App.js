@@ -41,7 +41,7 @@ class App extends Component {
     const clickedVenueidx = this.state.venues.findIndex(venue=>venue.id===marker.id)
     let venues = this.state.venues.map(venue =>{ venue.selected=false; return venue;})
     venues[clickedVenueidx].selected = true
-    this.setState({venues})
+    this.setState({matchingVenues:venues})
     // hack to change particular property of particular object from: https://stackoverflow.com/a/46761122
   }
   handleSideBarClose = () =>{
@@ -60,7 +60,7 @@ class App extends Component {
         />
         <Map id="page-wrap"
           handleClicker = {this.handleClicker}
-          venueMarkers={this.state.matchingVenues}
+          venueMarkers={this.state.venues}
         />
       </div>
     );
