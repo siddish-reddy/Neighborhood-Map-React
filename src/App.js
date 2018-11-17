@@ -48,7 +48,6 @@ class App extends Component {
     this.handleSearchInput('')
   }
   render() {
-    console.log(this.state.venuesPhotoUrl)
     return (
       <div role='main' className="App" id="app">
         <SearchPanel pageWrapId={ "page-wrap" } outerContainerId={ "app" }

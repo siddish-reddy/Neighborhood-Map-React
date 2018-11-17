@@ -30,7 +30,7 @@ const MapHelper = withScriptjs(withGoogleMap((props) =>
 
 class Map extends React.Component {
     render() {
-        console.log(this.props.venueMarkers)
+        // console.log(this.props.venueMarkers)
         // Replace with your google maps API 
         return (
             <div className='map'>
