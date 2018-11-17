@@ -18,7 +18,7 @@ class SearchPanel extends React.Component{
         return (
             <SideBar isOpen={this.state.isOpen}
              onStateChange={(state) => this.handleStateChange(state)}>
-                <header> <h2>Watchout Tirupati</h2></header>
+                <header> <h2 tabindex={0}>Watchout Tirupati</h2></header>
                 <label style={{cursor:'default'}}> Find your next favorite restaurant
                     <input 
                         type='text' 
@@ -26,11 +26,14 @@ class SearchPanel extends React.Component{
                         id = 'search-bar'
                         value={this.props.query}
                         onChange={(event) => this.props.handleSearchInput(event.target.value)}
+                        tabindex={0}
                     />
                 </label>
-                <ol>
+                <ol >
                     {this.props.venues && this.props.venues.filter(venue =>venue.show).map(venue=>
-                    <li key={venue.id} onClick={()=> {this.handleVenueClick();  this.props.handleClicker(venue)}}>{venue.name}</li>
+                    <li key={venue.id} onClick={()=> {this.handleVenueClick();  this.props.handleClicker(venue)}}tabindex={0}>
+                        {venue.name}
+                    </li>
                     )}
                 </ol>
             </SideBar>
