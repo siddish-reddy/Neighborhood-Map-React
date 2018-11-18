@@ -15,7 +15,11 @@ const MapHelper = withScriptjs(withGoogleMap((props) =>
         defaultCenter ={{lat: 13.6288, lng: 79.4192}}
     >
         {props.markers && props.markers.filter(marker =>marker.show).map(marker=>
-            <Marker key={marker.id} position={{lat:marker.lat, lng:marker.lng}} onClick={()=> props.handleClicker(marker)} defaultAnimation={google.maps.Animation.bounce}>
+            <Marker key={marker.id} position={{lat:marker.lat, lng:marker.lng}} 
+            onClick={()=> {
+                props.handleClicker(marker)
+            }} 
+            animation={marker.selected?google.maps.Animation.BOUNCE:null}>
                 {marker.selected && <InfoWindow role="dialog">
                     <React.Fragment >
                         <img src={marker.imgURL} alt={marker.name} />
