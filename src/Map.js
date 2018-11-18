@@ -18,9 +18,10 @@ const MapHelper = withScriptjs(withGoogleMap((props) =>
             <Marker key={marker.id} position={{lat:marker.lat, lng:marker.lng}} onClick={()=> props.handleClicker(marker)} defaultAnimation={google.maps.Animation.bounce}>
                 {marker.selected && <InfoWindow role="dialog">
                     <React.Fragment >
-                        <img src={marker.imgURL} alt='Venue' />
+                        <img src={marker.imgURL} alt={marker.name} />
                         <h4>{marker.name}</h4>
                         <p>{marker.rating} </p>
+                        <p>Credits FourSquare</p>
                     </React.Fragment>
                 </InfoWindow>}
             </Marker>

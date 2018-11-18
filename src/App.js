@@ -59,7 +59,7 @@ class App extends Component {
         />
         <Map id="page-wrap"
           handleClicker = {this.handleClicker}
-          venueMarkers={this.state.venues}
+          venueMarkers={this.state.matchingVenues}
         />
       </div>
     );

@@ -1,7 +1,7 @@
 import React from 'react'
 import {scaleDown  as SideBar} from 'react-burger-menu'
 
-
+//TODO: Need to handle keyboard events to allow the user to interact with the element without using the mouse.
 class SearchPanel extends React.Component{
     state={
         isOpen:true
@@ -16,23 +16,24 @@ class SearchPanel extends React.Component{
 
     render(){
         return (
-            <SideBar isOpen={this.state.isOpen}
+            <SideBar isOpen={this.state.isOpen} noOverlay
              onStateChange={(state) => this.handleStateChange(state)}>
-                <header> <h2 tabindex={0}>Watchout Tirupati</h2></header>
-                <label style={{cursor:'default'}}> Find your next favorite restaurant
+                <header> <h2 tabIndex={0}>Watchout Tirupati</h2></header>
                     <input 
                         type='text' 
                         placeholder='Search Places'
                         id = 'search-bar'
                         value={this.props.query}
                         onChange={(event) => this.props.handleSearchInput(event.target.value)}
-                        tabindex={0}
+                        tabIndex={0} aria-label="Find your next favorite place"
                     />
-                </label>
                 <ol >
                     {this.props.venues && this.props.venues.filter(venue =>venue.show).map(venue=>
-                    <li key={venue.id} onClick={()=> {this.handleVenueClick();  this.props.handleClicker(venue)}}tabindex={0}>
-                        {venue.name}
+                    <li key={venue.id} 
+                        onClick={()=> {this.handleVenueClick(); this.props.handleClicker(venue)}}
+                        tabIndex={0} role="button" aria-label={`Select Venue ${venue.name}`}
+                    >
+                            {venue.name}
                     </li>
                     )}
                 </ol>
