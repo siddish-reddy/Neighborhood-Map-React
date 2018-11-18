@@ -28,8 +28,10 @@ You need to get those APIs from the providers and place them in Map.js and FourS
 Then run `npm install` for installing dependencies and finally
 #### `npm start`
 Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser. <br/>
+Service Worker is not available in development mode
+To run in production mode use `npm build` cd into build folder and start server using npm's serve or python static http server.
+Service worker will be enabled in production mode.
 The page will reload if you make edits.<br>
 
 
